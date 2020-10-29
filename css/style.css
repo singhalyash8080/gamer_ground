@@ -65,6 +65,16 @@ a:focus {
 	outline: none;
 }
 
+.add-comment-form label{
+	color:white;
+}
+
+.add-comment-form button{
+
+	text-align: center;
+	margin: 0 auto;
+}
+
 ul,
 ol {
 	padding: 0;
@@ -684,7 +694,9 @@ ol {
 	font-size: 12px;
 }
 
-
+.review-text p{
+	/* text-align: left; */
+}
 
 .footer-top-section {
 	background-image: url("../img/pattern.png");
