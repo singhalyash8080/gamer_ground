@@ -4,7 +4,7 @@ const app = express();
 
 
 app.use(express.static('./'))
-app.get('/', (req, res) => res.send('./review.html'))
+app.get('/', (req, res) => res.send('./index.html'))
 
 
 
