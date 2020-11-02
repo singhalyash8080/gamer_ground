@@ -52,6 +52,14 @@ img {
 	max-width: 100%;
 }
 
+.get-details{
+	cursor: pointer;
+}
+
+.get-details:hover{
+	text-decoration: underline;
+}
+
 input:focus,
 select:focus,
 button:focus,

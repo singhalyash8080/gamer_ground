@@ -17,7 +17,7 @@ fetch(url, requestOptions)
     .then(data => { return data.json() })
     .then(res => {
         results = (res.results)
-        // console.log(results)
+        console.log(results)
 
         for (let i = 0; i < ob.length; i++) {
 
@@ -31,6 +31,8 @@ fetch(url, requestOptions)
             $('.' + ob[i] + '-head').text(results[games_range + i].name)
 
             $('.' + ob[i] + '-rating').text(results[games_range + i].rating)
+
+            $('.' + ob[i] + '-id').text(results[games_range + i].id)
 
             fetch("https://rawg-video-games-database.p.rapidapi.com/games/" + results[games_range + i].id, {
                 "method": "GET",
@@ -112,6 +114,8 @@ $(".site-btn").click(function () {
 
         $('.' + ob[i] + '-rating').text(results[games_range + i].rating)
 
+        $('.' + ob[i] + '-id').text(results[games_range + i].id)
+
         fetch("https://rawg-video-games-database.p.rapidapi.com/games/" + results[games_range + i].id, {
             "method": "GET",
             "headers": {
@@ -169,6 +173,16 @@ $(".site-btn").click(function () {
         }
 
     }
+
+})
+
+$(".get-details").click(function (){
+
+    var num = this.className.split(' ')[0].split('-')[0]
+
+    var id = ($('.'+num+'-id').html())
+
+    window.location.replace('./game.html?'+id)
 
 })
 
