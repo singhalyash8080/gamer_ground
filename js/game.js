@@ -12,6 +12,11 @@ var requestOptions = {
     body: JSON.stringify({ "id": game_id })
 }
 
+var game = ''
+var rating = ''
+var description = ''
+var image = ''
+
 fetch(url, requestOptions)
     .then(data => { return data.json() })
     .then((resp) => {
@@ -25,6 +30,12 @@ fetch(url, requestOptions)
         $('.one').css('background-size', '100% 100%')
 
         $('.one-head').text(resp.name)
+
+        image = resp.image
+
+        game = resp.name
+
+        rating = resp.rating
 
         if (resp.rating < 2) {
 
@@ -49,11 +60,13 @@ fetch(url, requestOptions)
 
         $('.game-det').text(resp.description)
 
+        description = resp.description
+
         if (resp.requirements[0] == null) {
             $('.game-req').text('---')
         }
         else {
-            $('.game-req').text(resp.requirements[0].minimum)
+            $('.game-req').html(resp.requirements[0].minimum)
 
         }
 
@@ -74,3 +87,32 @@ fetch(url, requestOptions)
 
 
     })
+
+$('.add-to-favourites').click(function () {
+
+    var requestOptions = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "id":game_id,
+            "rating": rating,
+            "name": game,
+            "description": description,
+            "image": image
+        })
+
+
+    }
+
+    const url = 'https://gamer-ground-backend.herokuapp.com/games/storeGame'
+
+
+    fetch(url, requestOptions)
+        .then(data => { return data.json() })
+        .then((resp) => {
+            alert('Game added to fvourites successfully!')
+        })
+
+})
