@@ -74,7 +74,7 @@ fetch(url, requestOptions)
 
         for (let i = 0; i < resp.stores.length; i++) {
 
-            store_links += '<li><a style="text-decoration:underline;" href="' + (resp.stores[i].url) + '">' + (resp.stores[i].url) + '</a></li><br>'
+            store_links += '<li><a style="text-decoration:underline;" href="' + (resp.stores[i].url) + '" target="_blank">' + (resp.stores[i].url) + '</a></li><br>'
 
         }
 
@@ -83,7 +83,7 @@ fetch(url, requestOptions)
         $('.game-stores').html(store_links)
 
 
-        $('.game-link').html('<a style="text-decoration:underline;" href="' + (resp.link) + '">' + (resp.link) + '</a><br>')
+        $('.game-link').html('<a style="text-decoration:underline;" href="' + (resp.link) + '" target="_blank">' + (resp.link) + '</a><br>')
 
 
     })
